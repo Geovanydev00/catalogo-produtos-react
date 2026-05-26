@@ -1,4 +1,5 @@
 import { useState } from "react";
+import produtoImg from "../assets/produto.webp";
 
 export default function ProductForm({ onAdd }) {
   const [name, setName] = useState("");
@@ -17,7 +18,7 @@ export default function ProductForm({ onAdd }) {
       name,
       price,
       description,
-      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+      image: produtoImg,
     });
 
     setName("");
@@ -29,21 +30,36 @@ export default function ProductForm({ onAdd }) {
     <form onSubmit={handleSubmit} className="product-form">
       <h2>Adicionar Produto</h2>
 
+      <label htmlFor="name">
+        Nome do produto
+      </label>
+
       <input
+        id="name"
         type="text"
         placeholder="Nome do produto"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
 
+      <label htmlFor="price">
+        Preço
+      </label>
+
       <input
+        id="price"
         type="number"
         placeholder="Preço"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />
 
+      <label htmlFor="description">
+        Descrição do produto
+      </label>
+
       <textarea
+        id="description"
         placeholder="Descrição do produto"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
